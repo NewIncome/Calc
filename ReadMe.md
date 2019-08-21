@@ -1,5 +1,5 @@
 Readme
-Rookie web calculator. JS practice
+Rookie <strong>web calculator</strong>. JS practice
 
 
 
