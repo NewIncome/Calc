@@ -24,9 +24,13 @@ body {
 #screen {
 	background: lightblue;
 	border: 2px solid gray;
+	box-sizing: border-box;
 	border-radius: 5px;
+	font-family: 'Press Start 2P', cursive;
+	font-size: 1.8em;
 	height: 15%;
 	margin: 2%;
+	padding: 5px;
 	width: 80%;
 }
 #keyPad {
@@ -38,13 +42,17 @@ body {
 	width: 80%;
 	/*position: fixed;*/
 }
-.wkeys {
+button {
 	background: #fff;
 	border-radius: 5px;
+	font-size: 2em;
+	font-weight: bold;
 	height: 15%;
-	margin: 2%;
 	text-align: center;
-	width: 20%;
+	flex-basis: 20%;
+}
+.mddl {
+	margin: 0 2%;
 }
 #eql {
 	background: orange;
