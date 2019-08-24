@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	let dtErrF = true;
 	let opErrF = true;
 	let to2dqF = true;
-	let exNumF = true;
+	let exNumF = false;
 
 	//Button accions
 	b9.addEventListener("click", e => {
@@ -82,24 +82,36 @@ document.addEventListener("DOMContentLoaded", () => {
 	});
 	//Action for Operation buttons
 	etr.addEventListener("click", e => {
-		sign = "/";
-		signBtn ();
+		if (exNumF) {
+			sign = "/";
+			signBtn ();
+			dtErrF = true;
+		}
 	});
 	tms.addEventListener("click", e => {
-		sign = "*";
-		signBtn ();
+		if (exNumF) {
+			sign = "*";
+			signBtn ();
+			dtErrF = true;
+		}
 	});
 	mns.addEventListener("click", e => {
-		sign = "-";
-		signBtn ();
+		if (exNumF) {
+			sign = "-";
+			signBtn ();
+			dtErrF = true;
+		}
 	});
 	pls.addEventListener("click", e => {
-		sign = "+";
-		signBtn ();
+		if (exNumF) {
+			sign = "+";
+			signBtn ();
+			dtErrF = true;	
+		}
 	});
 	eql.addEventListener("click", e => {
-		if (exNumF) scn.innerText = "WUpseee!! No argument yet";
-		else operation();
+		if (exNumF) operation();
+		else scn.innerText = "WUpseee!! No argument yet";
 	});
 	//Normal Output
 	function scnDsp () {
@@ -107,7 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			if (numerator.length < 6){ //21 tops
 			numerator = tempInNum.join("");
 			scn.innerText = numerator;
-			exNumF = false;
+			exNumF = true;
 			}
 			else scn.innerText = "Sorry, calculator not so pro. Refresh";
 		}
@@ -134,16 +146,16 @@ document.addEventListener("DOMContentLoaded", () => {
 		denominator = tempInNum.join("");
 		switch(sign){
 			case "/":
-				scn.innerText = parseInt(numerator) / parseInt(denominator);
+				scn.innerText = parseFloat(numerator) / parseFloat(denominator);
 				break;
 			case "*":
-				scn.innerText = parseInt(numerator) * parseInt(denominator);
+				scn.innerText = parseFloat(numerator) * parseFloat(denominator);
 				break;
 			case "-":
-				scn.innerText = parseInt(numerator) - parseInt(denominator);
+				scn.innerText = parseFloat(numerator) - parseFloat(denominator);
 				break;		
 			case "+":
-				scn.innerText = parseInt(numerator) + parseInt(denominator);
+				scn.innerText = parseFloat(numerator) + parseFloat(denominator);
 				break;
 			case "":
 				scnDsp();
@@ -157,7 +169,8 @@ document.addEventListener("DOMContentLoaded", () => {
 		sign = "";
 		dtErrF = true;
 		opErrF = true;
-		to2dqF = true;		
+		to2dqF = true;
+		exNumF = false;		
 	}
 
 /*If more complex eventually, must reset:
