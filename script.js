@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	let dtErrF = true;
 	let opErrF = true;
 	let to2dqF = true;
+	let sndQnt = 0;
 	let exNumF = false;
 
 	//Button accions
@@ -74,7 +75,8 @@ document.addEventListener("DOMContentLoaded", () => {
 	});
 	dt.addEventListener("click", e => {
 		if (dtErrF) {
-			tempInNum.push('.');
+			if (exNumF==false || to2dqF==false && sndQnt<2) tempInNum.push('0.');
+			else tempInNum.push('.');
 			scnDsp();
 			dtErrF = false;
 		}
@@ -127,6 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			if (denominator.length < 6){
 				denominator = tempInNum.join("");
 				scn.innerText = numerator + sign + denominator;
+				sndQnt++;
 			}
 			else scn.innerText = "Sorry, calculator not so pro. Refresh";
 		}
@@ -170,7 +173,8 @@ document.addEventListener("DOMContentLoaded", () => {
 		dtErrF = true;
 		opErrF = true;
 		to2dqF = true;
-		exNumF = false;		
+		exNumF = false;	
+		sndQnt = 0;	
 	}
 
 /*If more complex eventually, must reset:

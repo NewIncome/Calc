@@ -29,6 +29,7 @@ body {
 	font-size: 1.8em;
 	height: 15%;
 	margin: 2% 2% 0 2%;
+	overflow-x: hidden;
 	padding: 5px;
 	width: 80%;
 }
