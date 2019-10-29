@@ -10,9 +10,7 @@ body {
 	background: #222;
 	border-radius: 10px;
 	box-shadow: 2px 2px 2px #444;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center; 
+	justify-content: center;
 	height: 600px;
 	min-height: 400px;
 	margin: 30px auto;
@@ -28,7 +26,7 @@ body {
 	font-family: 'Press Start 2P', cursive;
 	font-size: 1.8em;
 	height: 15%;
-	margin: 2% 2% 0 2%;
+	margin: 2% auto;
 	overflow-x: hidden;
 	padding: 5px;
 	width: 80%;
@@ -39,6 +37,7 @@ body {
 	flex-wrap: wrap;
 	height: 70%;
 	justify-content: space-between;
+	margin: 0 auto;
 	width: 80%;
 	/*position: fixed;*/
 }
@@ -56,4 +55,14 @@ button {
 }
 #eql {
 	background: orange;
+}
+
+.clr-container {
+	margin: 1% auto;
+	width: 80%;
+}
+
+#clr {
+	float: right;
+	width: 47%;
 }
