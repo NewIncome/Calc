@@ -37,6 +37,9 @@ document.addEventListener("DOMContentLoaded", () => {
 			element.addEventListener("click", e => {
 				tempInNum.push(element.innerText);
 				scnDsp();
+				console.log('temp: ', tempInNum);
+				console.log('num: ', numerator);
+				console.log('den: ', denominator);
 			});
 		}
 	});
