@@ -1,6 +1,7 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-	<title></title>
+	<title>Calc classic</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
 	<script type="text/javascript" src="script.js"></script>
@@ -9,23 +10,27 @@
 	<div id="calcBdy">
 		<div id="screen">0</div>
 		<div id="keyPad">
-			<button id="b7" class="wkeys">7</button>
-			<button id="b8" class="mddl">8</button>
-			<button id="b9" class="mddl">9</button>
-			<button id="etr" class="mddl">/</button>
-			<button id="b4" class="wkeys">4</button>
-			<button id="b5" class="mddl">5</button>
-			<button id="b6" class="mddl">6</button>
-			<button id="tms" class="mddl">x</button>
-			<button id="b1" class="wkeys">1</button>
-			<button id="b2" class="mddl">2</button>
-			<button id="b3" class="mddl">3</button>
-			<button id="mns" class="mddl">-</button>
-			<button id="b0" class="wkeys">0</button>
+			<button id="b7" class="wkeys numKey">7</button>
+			<button id="b8" class="mddl numKey">8</button>
+			<button id="b9" class="mddl numKey">9</button>
+			<button id="etr" class="mddl operandKey">/</button>
+			<button id="b4" class="wkeys numKey">4</button>
+			<button id="b5" class="mddl numKey">5</button>
+			<button id="b6" class="mddl numKey">6</button>
+			<button id="tms" class="mddl operandKey">*</button>
+			<button id="b1" class="wkeys numKey">1</button>
+			<button id="b2" class="mddl numKey">2</button>
+			<button id="b3" class="mddl numKey">3</button>
+			<button id="mns" class="mddl operandKey">-</button>
+			<button id="b0" class="wkeys numKey">0</button>
 			<button id="dt" class="wkeys">.</button>
-			<button id="pls" class="wkeys">+</button>
+			<button id="pls" class="wkeys operandKey">+</button>
 			<button id="eql" class="wkeys">=</button>
+		</div>
+		<div class="clr-container">
+			<button id="clr" class="wkeys">Clear</button>
 		</div>
 	</div>
 
 </body>
+</html>

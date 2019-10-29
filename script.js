@@ -3,23 +3,10 @@ document.addEventListener("DOMContentLoaded", () => {
 //-------------------------code-------------------------
 //First is always variable defining inputs and outputs.
 	//Input/output, buttons and screen
-	let b9 = document.querySelector("#b9");
-	let b8 = document.querySelector("#b8");
-	let b7 = document.querySelector("#b7");
-	let b6 = document.querySelector("#b6");
-	let b5 = document.querySelector("#b5");
-	let b4 = document.querySelector("#b4");
-	let b3 = document.querySelector("#b3");
-	let b2 = document.querySelector("#b2");
-	let b1 = document.querySelector("#b1");
-	let b0 = document.querySelector("#b0");
-	let dt = document.querySelector("#dt");
-	let etr = document.querySelector("#etr");
-	let tms = document.querySelector("#tms");
-	let mns = document.querySelector("#mns");
-	let pls = document.querySelector("#pls");
-	let eql = document.querySelector("#eql");
 	let scn = document.querySelector("#screen");
+	let operandsNode = document.querySelectorAll(".operandKey")
+	let operands = []
+	operandsNode.forEach(el => operands.push(el.innerText))
 	//Global Variables.
 	let tempInNum = [];
 	let numerator = [];
@@ -31,48 +18,34 @@ document.addEventListener("DOMContentLoaded", () => {
 	let to2dqF = true;
 	let sndQnt = 0;
 	let exNumF = false;
+	let btn = document.querySelectorAll('button');
+
+	btn.forEach(function(element) {
+		let numElement = parseInt(element.innerText);
+		let strElement = element.innerText;
+		if (isNaN(numElement)) {
+			if (operands.includes(strElement)) {
+				element.addEventListener("click", e => {
+					if (exNumF) {
+						sign = element.innerText;
+						signBtn ();
+						dtErrF = true;
+					}
+				});
+			}
+		} else {
+			element.addEventListener("click", e => {
+				tempInNum.push(element.innerText);
+				scnDsp();
+				console.log('temp: ', tempInNum);
+				console.log('num: ', numerator);
+				console.log('den: ', denominator);
+			});
+		}
+	});
 
 	//Button accions
-	b9.addEventListener("click", e => {
-		tempInNum.push(9);
-		scnDsp();
-	});
-	b8.addEventListener("click", e => {
-		tempInNum.push(8);
-		scnDsp();
-	});
-	b7.addEventListener("click", e => {
-		tempInNum.push(7);
-		scnDsp();
-	});
-	b6.addEventListener("click", e => {
-		tempInNum.push(6);
-		scnDsp();
-	});
-	b5.addEventListener("click", e => {
-		tempInNum.push(5);
-		scnDsp();
-	});
-	b4.addEventListener("click", e => {
-		tempInNum.push(4);
-		scnDsp();
-	});
-	b3.addEventListener("click", e => {
-		tempInNum.push(3);
-		scnDsp();
-	});
-	b2.addEventListener("click", e => {
-		tempInNum.push(2);
-		scnDsp();
-	});
-	b1.addEventListener("click", e => {
-		tempInNum.push(1);
-		scnDsp();
-	});
-	b0.addEventListener("click", e => {
-		tempInNum.push(0);
-		scnDsp();
-	});
+
 	dt.addEventListener("click", e => {
 		if (dtErrF) {
 			if (exNumF==false || to2dqF==false && sndQnt<2) tempInNum.push('0.');
@@ -83,34 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		else scn.innerText = "NO Fooling around!!";
 	});
 	//Action for Operation buttons
-	etr.addEventListener("click", e => {
-		if (exNumF) {
-			sign = "/";
-			signBtn ();
-			dtErrF = true;
-		}
-	});
-	tms.addEventListener("click", e => {
-		if (exNumF) {
-			sign = "*";
-			signBtn ();
-			dtErrF = true;
-		}
-	});
-	mns.addEventListener("click", e => {
-		if (exNumF) {
-			sign = "-";
-			signBtn ();
-			dtErrF = true;
-		}
-	});
-	pls.addEventListener("click", e => {
-		if (exNumF) {
-			sign = "+";
-			signBtn ();
-			dtErrF = true;	
-		}
-	});
+
 	eql.addEventListener("click", e => {
 		if (exNumF) operation();
 		else scn.innerText = "WUpseee!! No argument yet";
@@ -139,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		to2dqF = false;//to work now on 2nd quantity.
 		if (opErrF) {
 			tempInNum = [];
-			scnDsp(); 
+			scnDsp();
 			opErrF = false;//so they don't hit same btn again.
 		}
 		else scn.innerText = "NO Fooling around!!";
@@ -156,7 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				break;
 			case "-":
 				scn.innerText = parseFloat(numerator) - parseFloat(denominator);
-				break;		
+				break;
 			case "+":
 				scn.innerText = parseFloat(numerator) + parseFloat(denominator);
 				break;
@@ -173,8 +119,8 @@ document.addEventListener("DOMContentLoaded", () => {
 		dtErrF = true;
 		opErrF = true;
 		to2dqF = true;
-		exNumF = false;	
-		sndQnt = 0;	
+		exNumF = false;
+		sndQnt = 0;
 	}
 
 /*If more complex eventually, must reset:
